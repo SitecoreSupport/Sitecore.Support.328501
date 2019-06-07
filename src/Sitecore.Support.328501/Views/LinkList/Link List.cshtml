@@ -10,7 +10,10 @@
 }
 <div @Html.Sxa().Component(Model.Rendering.RenderingCssClass ?? "link-list", Model.Attributes)>
     <div class="component-content">
-        @Html.Sxa().RenderHeading(Model.HeadingTag, Model.DataSourceItem, "Title", Model.GetRenderingWebEditingParams())
+        @if(Model.DataSourceItem["Title"]!="") 
+		{
+			@Html.Sxa().RenderHeading(Model.HeadingTag, Model.DataSourceItem, "Title", Model.GetRenderingWebEditingParams())
+		}
         @if (Model.Rendering.DataSourceItem == null)
         {
             @Model.MessageIsEmpty
